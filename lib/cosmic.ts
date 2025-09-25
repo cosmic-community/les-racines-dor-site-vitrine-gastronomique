@@ -1,4 +1,5 @@
 import { createBucketClient } from '@cosmicjs/sdk'
+import { MenuItem, Testimonial } from '@/types'
 
 export const cosmic = createBucketClient({
   bucketSlug: process.env.COSMIC_BUCKET_SLUG as string,
@@ -80,9 +81,9 @@ export async function getMenuByCategory() {
       entrees: [],
       plats: [],
       desserts: []
-    } as Record<string, any[]>;
+    } as Record<string, MenuItem[]>;
     
-    allMenuItems.forEach(item => {
+    allMenuItems.forEach((item: MenuItem) => {
       const categoryKey = item.metadata?.category?.key;
       if (categoryKey && categorizedMenu[categoryKey]) {
         categorizedMenu[categoryKey].push(item);
@@ -142,7 +143,7 @@ export async function getTestimonials() {
     
     // Sort testimonials by rating (highest first) and then by date
     const testimonials = response.objects || [];
-    return testimonials.sort((a, b) => {
+    return testimonials.sort((a: Testimonial, b: Testimonial) => {
       const ratingA = parseInt(a.metadata?.rating?.key || '0');
       const ratingB = parseInt(b.metadata?.rating?.key || '0');
       
