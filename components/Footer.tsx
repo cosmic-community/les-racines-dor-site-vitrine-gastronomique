@@ -1,5 +1,14 @@
+'use client'
+
 export default function Footer() {
   const currentYear = new Date().getFullYear()
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
 
   return (
     <footer className="bg-primary-800 text-white">
@@ -22,7 +31,7 @@ export default function Footer() {
             <ul className="space-y-2 text-green-100">
               <li>
                 <button
-                  onClick={() => document.getElementById('menu')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => scrollToSection('menu')}
                   className="hover:text-gold-300 transition-colors duration-200"
                 >
                   Menu
@@ -30,7 +39,7 @@ export default function Footer() {
               </li>
               <li>
                 <button
-                  onClick={() => document.getElementById('chef')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => scrollToSection('chef')}
                   className="hover:text-gold-300 transition-colors duration-200"
                 >
                   Chef
@@ -38,7 +47,7 @@ export default function Footer() {
               </li>
               <li>
                 <button
-                  onClick={() => document.getElementById('team')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => scrollToSection('team')}
                   className="hover:text-gold-300 transition-colors duration-200"
                 >
                   Équipe
@@ -46,7 +55,7 @@ export default function Footer() {
               </li>
               <li>
                 <button
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => scrollToSection('contact')}
                   className="hover:text-gold-300 transition-colors duration-200"
                 >
                   Contact
