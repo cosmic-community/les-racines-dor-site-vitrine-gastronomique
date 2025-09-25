@@ -1,5 +1,6 @@
 import { getRestaurantInfo } from '@/lib/cosmic'
 import { RestaurantInfo } from '@/types'
+import HeroButtons from '@/components/HeroButtons'
 
 export default async function HeroSection() {
   const restaurantInfo = await getRestaurantInfo() as RestaurantInfo
@@ -51,19 +52,7 @@ export default async function HeroSection() {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-scale-in">
-            <button
-              onClick={() => document.getElementById('menu')?.scrollIntoView({ behavior: 'smooth' })}
-              className="btn-primary text-lg px-8 py-4"
-            >
-              Découvrir le Menu
-            </button>
-            
-            <button
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="btn-secondary text-lg px-8 py-4"
-            >
-              Réserver une Table
-            </button>
+            <HeroButtons />
           </div>
         </div>
       </div>
